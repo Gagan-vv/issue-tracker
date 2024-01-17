@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Create Project</title>
+        <link rel="stylesheet" href="/createProject.css" />
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+    </head>
+    <body>
+        <div class="center">
+            <form>
+                <div class="centerLogo">
+                    <img style="height: 150px" src="/images/favicon.png" />
+                </div>
+                <h1>Hello <%= userData.username %>, Create a Project</h1>
+                <div class="txt_field">
+                    <input type="text" name="name" required />
+                    <span></span>
+                    <label>Project Name</label>
+                </div>
+                <div class="txt_field">
+                    <input name="description" type="text" required />
+                    <span></span>
+                    <label>Description</label>
+                </div>
+                <div class="txt_field" style="display: none">
+                    <input
+                        name="userId"
+                        type="text"
+                        value="<%= userData._id %>" />
+                    <span></span>
+                    <label>Description</label>
+                </div>
+                <input name="submit" value="Create" />
+            </form>
+        </div>
+        <script src="/createProject.js"></script>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= projectData.projectName %></title>
+        <link rel="stylesheet" type="text/css" href="/createIssue.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+        <link
+            href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="/project.css" />
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <div class="card">
+            <i><p class="tag-text"><%= projectData.projectName %></p></i>
+            <form style="margin: 50px; margin-top: 120px" id="issue-form">
+                <input
+                    type="text"
+                    id="projectId"
+                    name="projectId"
+                    value="<%= projectData._id %>"
+                    style="display: none" />
+                <input
+                    type="text"
+                    id="userId"
+                    name="userId"
+                    value="<%= projectData.user._id %>"
+                    style="display: none" />
+
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        class="form-control"
+                        required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label"
+                        >Description</label
+                    >
+                    <div class="input-group">
+                        <textarea
+                            id="description"
+                            name="description"
+                            class="form-control"
+                            aria-label="With textarea"
+                            required></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="labels" class="form-label"
+                        >Labels (comma separated)</label
+                    >
+                    <input
+                        type="text"
+                        id="labels"
+                        name="labels"
+                        class="form-control" />
+                </div>
+
+                <input
+                    type="hidden"
+                    name="author"
+                    value="<%= projectData.user._id %>"
+                    class="form-control" />
+                <button class="btn btn-outline-primary" type="submit">
+                    Create Issue
+                </button>
+            </form>
+            <script src="/createIssue.js"></script>
+        </div>
+    </body>
+</html>
